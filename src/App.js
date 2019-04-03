@@ -35,24 +35,32 @@ class App extends Component {
   render() {
     //const { name } = this.state;
    // const { nameFromStore } = this.props;
-    const { nameFromStore,emailFromStore,phoneFromStore } = this.props;
+    const { nameFromStore,emailFromStore,ageFromStore,phoneFromStore,imageStore } = this.props;
+    {console.log('app newimage--->' + {imageStore})}
+    var tmp=''
+    {imageStore==='logo1' ?  
+    tmp= <img src={logo1}  className="App-logo" alt="logo" />
+    :
+    tmp= <img src={logo2}  className="App-logo" alt="logo" />
+  }
     return (
       <div className="App">
         <header className="App-header">
           {/* <img src={logo1} className="App-logo" alt="logo" /> */}
-          <img src={logo2}  className="App-logo" alt="logo" />
+          {tmp}
           <p>
             {/* My name is {name}! */}
           </p>
           <p>My name from the store is {nameFromStore}!</p>
           <p>Email : {emailFromStore}</p>
           <p>Phone : {phoneFromStore}</p>
+          <p>logo : {imageStore}</p>
           <a
             className="App-link"
             href="#"
             onClick={this.handleClick}
           >  
-            Change Name
+            Change Name , image and etc
           </a>
         </header>
       </div>
@@ -65,9 +73,10 @@ const mapStateToProps = state => ({
   emailFromStore: state.email,
   ageFromStore: state.age,
   phoneFromStore: state.phone,
-  changeImage:state.image,
-});
+  imageStore:state.image,
 
+});
+//console.log('here' +{emailFromStore});
 const mapDispatchToProps = dispatch => ({
   dispatchChangeName: () => dispatch(   changeName()) ,
   dispatchChangeEmail: () => dispatch( changeEmail()),

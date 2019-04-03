@@ -3,7 +3,7 @@ const initialState = {
     email: 'eshan@intnet.mu',
     age: 31,
     phone:'464 3417',
-    image:'logo.svg',
+    image:'logo1',
 
 };
 
@@ -36,7 +36,8 @@ const reducer = (state = initialState, action) => {
             };
             case 'CHANGE_IMAGE':
             const { image } = state;
-            const newimage = image === 'logo.svg' ? 'eshan@gmail.mu' : 'eshan@intnet.mu'; 
+            const newimage = image === 'logo1' ? 'logo2' : 'logo1'; 
+            console.log('newimage' + newimage)
             return {
                 ...state,
                 image: newimage,
