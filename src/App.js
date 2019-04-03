@@ -3,22 +3,24 @@ import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
 
-import { changeName, changeEmail } from './actions/actions';
+import { changeName, changeEmail, changePhone  } from './actions/actions';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+ /*   this.state = {
       name: 'Eric',
-    }
+    }*/
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
     const { dispatchChangeName } = this.props;
-    const { dispatchChangeEmail } = this.props;
+     const { dispatchChangeEmail,dispatchChangephone } = this.props;
+
      dispatchChangeName();
      dispatchChangeEmail();
+     dispatchChangephone();
     //const { name, email } = this.state;
    /* const newName = name === 'Eshan' ? 'John' : 'Eric'; 
     this.setState({
@@ -30,8 +32,8 @@ class App extends Component {
 
   render() {
     //const { name } = this.state;
-    const { nameFromStore } = this.props;
-    const { emailFromStore } = this.props;
+   // const { nameFromStore } = this.props;
+    const { nameFromStore,emailFromStore,phoneFromStore } = this.props;
     return (
       <div className="App">
         <header className="App-header">
@@ -41,13 +43,12 @@ class App extends Component {
           </p>
           <p>My name from the store is {nameFromStore}!</p>
           <p>Email : {emailFromStore}</p>
+          <p>Phone : {phoneFromStore}</p>
           <a
             className="App-link"
             href="#"
             onClick={this.handleClick}
-          >
-  
-
+          >  
             Change Name
           </a>
         </header>
@@ -60,11 +61,13 @@ const mapStateToProps = state => ({
   nameFromStore: state.name,
   emailFromStore: state.email,
   ageFromStore: state.age,
+  phoneFromStore: state.phone,
 });
 
 const mapDispatchToProps = dispatch => ({
-  dispatchChangeName: () => dispatch( changeName()) ,
-  dispatchChangeEmail: () => dispatch( changeEmail()) 
+  dispatchChangeName: () => dispatch(   changeName()) ,
+  dispatchChangeEmail: () => dispatch( changeEmail()),
+  dispatchChangephone: () => dispatch( changePhone()), 
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

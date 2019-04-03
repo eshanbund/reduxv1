@@ -2,6 +2,7 @@ const initialState = {
     name: 'Eshan from Redux Reducer',
     email: 'eshan@intnet.mu',
     age: 31,
+    phone:'464 3417',
 };
 
 const reducer = (state = initialState, action) => {
@@ -15,6 +16,14 @@ const reducer = (state = initialState, action) => {
             };
         case 'DO_OTHER_THING':
             return state;
+
+            case 'CHANGE_PHONE':
+            const { phone } = state;
+            const newPhone = phone === '464 3417' ? '647 8642744' : '464 3417'; 
+            return {
+                ...state,
+                phone: newPhone,
+            };
 
         case 'CHANGE_EMAIL':
             const { email } = state;
