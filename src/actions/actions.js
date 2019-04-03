@@ -9,3 +9,7 @@ export const changeName = () => ({
  export const changePhone = () => ({
     type: 'CHANGE_PHONE',
 });
+
+export const changeImage = () => ({
+    type: 'CHANGE_IMAGE',
+});

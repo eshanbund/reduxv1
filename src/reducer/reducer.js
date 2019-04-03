@@ -3,6 +3,8 @@ const initialState = {
     email: 'eshan@intnet.mu',
     age: 31,
     phone:'464 3417',
+    image:'logo.svg',
+
 };
 
 const reducer = (state = initialState, action) => {
@@ -32,6 +34,16 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 email: newemail,
             };
+            case 'CHANGE_IMAGE':
+            const { image } = state;
+            const newimage = image === 'logo.svg' ? 'eshan@gmail.mu' : 'eshan@intnet.mu'; 
+            return {
+                ...state,
+                image: newimage,
+            };
+
+
+
         default:
             return state;
     }
