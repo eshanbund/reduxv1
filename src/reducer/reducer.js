@@ -1,6 +1,6 @@
 const initialState = {
-    name: 'Eric from Redux Reducer',
-    email: 'eric.chen@senecacollege.ca',
+    name: 'Eshan from Redux Reducer',
+    email: 'Eshan.bund@senecacollege.ca',
     age: 31,
 };
 
@@ -8,7 +8,7 @@ const reducer = (state = initialState, action) => {
     switch(action.type) {
         case 'CHANGE_NAME':
             const { name } = state;
-            const newName = name === 'Eric from Redux Reducer' ? 'John' : 'Eric from Redux Reducer'; 
+            const newName = name === 'Eshan from Redux Reducer' ? 'John' : 'Eshan from Redux Reducer'; 
             return {
                 ...state,
                 name: newName,
