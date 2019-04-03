@@ -3,5 +3,9 @@ export const changeName = () => ({
  });
 
  export const changeEmail = () => ({
-     types: 'CHANGE_EMAIL',
+     type: 'CHANGE_EMAIL',
  });
+
+ export const changePhone = () => ({
+    type: 'CHANGE_PHONE',
+});

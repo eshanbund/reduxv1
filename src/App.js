@@ -16,30 +16,38 @@ class App extends Component {
 
   handleClick() {
     const { dispatchChangeName } = this.props;
-    dispatchChangeName();
-    const { name } = this.state;
-    const newName = name === 'Eric' ? 'John' : 'Eric'; 
+    const { dispatchChangeEmail } = this.props;
+     dispatchChangeName();
+     dispatchChangeEmail();
+    //const { name, email } = this.state;
+   /* const newName = name === 'Eshan' ? 'John' : 'Eric'; 
     this.setState({
       name: newName,
-    });
+      //email:nw
+      
+    });*/
   }
 
   render() {
-    const { name } = this.state;
+    //const { name } = this.state;
     const { nameFromStore } = this.props;
+    const { emailFromStore } = this.props;
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            My name is {name}!
+            {/* My name is {name}! */}
           </p>
           <p>My name from the store is {nameFromStore}!</p>
+          <p>Email : {emailFromStore}</p>
           <a
             className="App-link"
             href="#"
             onClick={this.handleClick}
           >
+  
+
             Change Name
           </a>
         </header>
@@ -55,7 +63,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  dispatchChangeName: () => dispatch(changeName())
+  dispatchChangeName: () => dispatch( changeName()) ,
+  dispatchChangeEmail: () => dispatch( changeEmail()) 
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

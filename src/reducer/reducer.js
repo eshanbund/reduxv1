@@ -1,6 +1,6 @@
 const initialState = {
     name: 'Eshan from Redux Reducer',
-    email: 'Eshan.bund@senecacollege.ca',
+    email: 'eshan@intnet.mu',
     age: 31,
 };
 
@@ -15,6 +15,14 @@ const reducer = (state = initialState, action) => {
             };
         case 'DO_OTHER_THING':
             return state;
+
+        case 'CHANGE_EMAIL':
+            const { email } = state;
+            const newemail = email === 'eshan@intnet.mu' ? 'eshan@gmail.mu' : 'eshan@intnet.mu'; 
+            return {
+                ...state,
+                email: newemail,
+            };
         default:
             return state;
     }
